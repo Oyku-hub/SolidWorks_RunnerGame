@@ -1,26 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using DG.Tweening;
 using UnityEngine;
 
-public class Coin : MonoBehaviour, ICollectable
+public class Coin : MonoBehaviour,ICollectable
 {
-    [SerializeField] ParticleSystem collectedParticle;
-    ParticleSystem coinCollectParticle;
-
+    Vector3 initialScale;
+    #region Interface Method
+    Collider collider;
     private void Start()
     {
-        if(collectedParticle!=null)
-        {
-            this.coinCollectParticle = collectedParticle;
-        }
+        initialScale = this.transform.localScale;
+        collider = GetComponent<Collider>();
+      
     }
-
-    #region Interface Method
     public void Collect()
     {
-        coinCollectParticle.Play();
+
+        collider.enabled = false;
+        Destroy(this.GetComponent<Collider>());
+
+        this.transform.DOScale(Vector3.zero, 0.3F).OnComplete(() =>
+        {
+            CreateGameObjectsPool.Instance.CreateGameObject(CommanVariables.SpawnedObjects.CollectedParticle.ToString(), this.transform.position, null);
+            ResetObject();
+        });
+
     }
     #endregion
 
+   void ResetObject()
+    {
+        gameObject.SetActive(false);
+        this.transform.localScale=initialScale;
+        collider.enabled = true;
+    }
 }

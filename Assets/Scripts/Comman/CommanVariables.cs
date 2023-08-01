@@ -8,8 +8,16 @@ public class CommanVariables
     public enum SpawnedObjects
     {
         Barrier,
-        Coin
+        Coin,
+        CollectedParticle
 
+    };
+
+    public enum PanelTypes
+    {
+        Start=0,
+        Faild=1,
+        Success=2
     };
 
 

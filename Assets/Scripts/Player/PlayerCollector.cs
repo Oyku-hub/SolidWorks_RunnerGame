@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerCollector : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-
-       
-        if(gameObject.TryGetComponent<ICollectable>(out var collectItem))
+        if (other.gameObject.TryGetComponent<ICollectable>(out var collectItem))
         {
             collectItem.Collect();
+            
         }
     }
-
 
 }

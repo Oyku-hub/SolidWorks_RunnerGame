@@ -22,7 +22,7 @@ public class PlayerController : Player
     protected override void Start()
     {
         base.Start();
-        isControlEnabled= true;
+       // isControlEnabled= true;
         isDeath= false;
         
         

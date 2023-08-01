@@ -13,8 +13,22 @@ public class Player : MonoBehaviour
     protected Rigidbody rb;
     #endregion
 
+    private void Awake()
+    {
+        isControlEnabled=false; 
+    }
 
-   protected virtual void Start()
+    private void OnEnable()
+    {
+        GameManager.OnStartGame += GameManager_OnStartGame;
+    }
+
+    private void GameManager_OnStartGame()
+    {
+        GameManager.OnStartGame -= GameManager_OnStartGame;
+    }
+
+    protected virtual void Start()
    {
         rb = GetComponent<Rigidbody>();
         anim= GetComponent<Animator>();
