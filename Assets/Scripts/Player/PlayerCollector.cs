@@ -11,6 +11,11 @@ public class PlayerCollector : MonoBehaviour
             collectItem.Collect();
             
         }
+        if (other.gameObject.TryGetComponent<IObstacle>(out var obstacleItem))
+        {
+            obstacleItem.Hit();
+
+        }
     }
 
 }

@@ -20,6 +20,14 @@ public class CommanVariables
         Success=2
     };
 
+    public enum PlayerAnimsTriggers
+    {
+        Run,
+        Hit,
+        Death,
+
+
+    }
 
 
 }

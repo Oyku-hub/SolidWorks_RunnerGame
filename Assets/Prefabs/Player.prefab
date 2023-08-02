@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 4321965386151384}
   - component: {fileID: 4280272040520575427}
   - component: {fileID: 3731438263562455401}
+  - component: {fileID: 2574995311855986955}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -243,14 +244,14 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.61108303
+  m_Radius: 0.3898137
   m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: -8.8817755e-12, y: 0.89998436, z: -0.022370696}
+  m_Center: {x: -0.07176915, y: 0.8999634, z: -0.045086294}
 --- !u!54 &4400565114389788811
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,8 +261,8 @@ Rigidbody:
   m_GameObject: {fileID: 900591579216015509}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 0.05
+  m_Drag: 5
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -273,7 +274,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -311,8 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f28992f38d07384bb6bc1baa17f0420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 20
-  sideSpeed: 30
+  forwardSpeed: 65
+  sideSpeed: 45
   gameJoystick: {fileID: 0}
 --- !u!114 &3731438263562455401
 MonoBehaviour:
@@ -326,6 +327,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4c9bf1068bc4a43bd0bb7025e8cbe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2574995311855986955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900591579216015509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16e8e7eb2df49741b012358624d01f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 18
 --- !u!1 &1026022008717351693
 GameObject:
   m_ObjectHideFlags: 0
