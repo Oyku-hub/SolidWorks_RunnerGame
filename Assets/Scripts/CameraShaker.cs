@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraShaker : MonoBehaviour
+public class CameraShaker : BaseObstacle
 {
     [SerializeField] CinemachineVirtualCamera cmVirtualCamera;
     [SerializeField] float shakeTimeOut=.3F;
@@ -18,14 +18,14 @@ public class CameraShaker : MonoBehaviour
             Debug.Log("Errorr!!!!");
         }
         cmBasicMultiChannelPerlin.m_AmplitudeGain = 0F;
-        Barrier.onHit += Barrier_onHit;
+        Barrier.OnHit += Barrier_onHit;
 
 
     }
 
     private void OnDisable()
     {
-        Barrier.onHit -= Barrier_onHit;
+        Barrier.OnHit -= Barrier_onHit;
     }
     private void Barrier_onHit(float obj)
     {

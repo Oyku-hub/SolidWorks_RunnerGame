@@ -12,7 +12,7 @@ public class PlayerHealth : Player
     private void OnEnable()
     {
         currentHealth = maxHealth;
-        Barrier.onHit += Barrier_onHit;
+        Barrier.OnHit += Barrier_onHit;
   
     }
 
@@ -21,7 +21,7 @@ public class PlayerHealth : Player
     private void OnDisable()
     {
         currentHealth = maxHealth;
-        Barrier.onHit -= Barrier_onHit;
+        Barrier.OnHit -= Barrier_onHit;
     
     }
 
@@ -51,5 +51,12 @@ public class PlayerHealth : Player
   
     }
 
+    public float GetMaxHealth() {
 
+        return this.maxHealth;
+    }
+    public float GetCurrentHealth() {
+
+        return this.currentHealth;
+    }
 }

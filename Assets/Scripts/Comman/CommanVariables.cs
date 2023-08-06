@@ -17,7 +17,8 @@ public class CommanVariables
     {
         Start=0,
         Faild=1,
-        Success=2
+        Success=2,
+        InGame=3
     };
 
     public enum PlayerAnimsTriggers

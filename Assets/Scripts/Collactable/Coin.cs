@@ -1,24 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using System;
 using UnityEngine;
 
-public class Coin : MonoBehaviour,ICollectable
+public class Coin : BaseCollectable 
 {
-    Vector3 initialScale;
-    #region Interface Method
-    Collider collider;
-    private void Start()
-    {
-        initialScale = this.transform.localScale;
-        collider = GetComponent<Collider>();
-      
-    }
-    public void Collect()
-    {
 
-        collider.enabled = false;
-        Destroy(this.GetComponent<Collider>());
+    public override  void Collect()
+    {
+        base.Collect();
 
         this.transform.DOScale(Vector3.zero, 0.3F).OnComplete(() =>
         {
@@ -26,13 +17,9 @@ public class Coin : MonoBehaviour,ICollectable
             ResetObject();
         });
 
-    }
-    #endregion
 
-   void ResetObject()
-    {
-        gameObject.SetActive(false);
-        this.transform.localScale=initialScale;
-        collider.enabled = true;
     }
+  
+
+  
 }

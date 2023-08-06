@@ -3,16 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrier : MonoBehaviour, IObstacle
+public class Barrier : BaseObstacle
 {
-    public float Damage { get => damage; set => damage=value; }
-    [SerializeField]private float damage;
+    [SerializeField] private float damage;
 
-
-    public static event Action<float> onHit;
-
-    public void Hit()
+    protected override void Start()
     {
-       onHit?.Invoke(damage);
+       this.Damage= damage;
+
+    }
+    public override void Hit()
+    {
+        base.Hit();
     }
 }
